@@ -15,7 +15,7 @@ class CreateStudentsTable extends Migration
     {
           Schema::create('students', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');;
+            $table->increments('id');
             $table->char('student_id', 5)->unique();
             $table->string('name', 100)->index();
             $table->integer('age')->index();
