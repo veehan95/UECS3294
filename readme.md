@@ -9,6 +9,11 @@ This project should not be used for any commercial purpose
 
 ## Structure
 Classes Table
+<table>
+  <thead>
+    <td>id</td>
+  </thead>
+</table>
 - id -> Primary Key
 - class_id
 - subject
