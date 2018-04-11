@@ -7,46 +7,51 @@ for tuition center.
 This is an assignment form UECS3294 Advance Web Application in UTAR for January 2018.
 This project should not be used for any commercial purpose
 
-## Structure
-Classes Table
+# Structure
+##Classes Table
 <table>
   <thead>
-    <td>id</td>
+    <td>id(PK)</td>
+    <td>class_id</td>
+    <td>subject</td>
+    <td>time</td>
+    <td>day</td>
+    <td>effective_date</td>
+    <td>close_date</td>
+    <td>max_sit</td>
+    <td>venue</td>
+    <td>teacher_id(FK)</td>
   </thead>
 </table>
-- id -> Primary Key
-- class_id
-- subject
-- time
-- day
-- effective_date
-- close_date
-- max_sit
-- venue
-- teacher_id -> Foreign Key -> reference on Teachers table
-
-Teachers Table
-- id -> Primary Key
-- teacher_id
-- name
-- age
-- ic
-- address
-- contact
-- email
-- education_background
-
-Students Table
-- id
-- student_id
-- name
-- age
-- ic
-- address
-- contact
-- parents_contact
-- email
-- school
+##Teachers Table
+<table>
+  <thead>
+    <td>id(PK)</td>
+    <td>teacher_id</td>
+    <td>name</td>
+    <td>age</td>
+    <td>ic</td>
+    <td>address</td>
+    <td>contact</td>
+    <td>email</td>
+    <td>education_background</td>
+  </thead>
+</table> 
+##Students Table
+<table>
+  <thead>
+    <td>id(PK)</td>
+    <td>student_id</td>
+    <td>name</td>
+    <td>age</td>
+    <td>ic</td>
+    <td>address</td>
+    <td>contact</td>
+    <td>parents_contact</td>
+    <td>email</td>
+    <td>school</td>
+  </thead>
+</table>
 
 ## Framework
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
