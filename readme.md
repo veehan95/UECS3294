@@ -9,7 +9,8 @@ This project should not be used for any commercial purpose
 
 ## Structure
 Classes Table
-- id -> Primary Key - class_id
+- id -> Primary Key
+- class_id
 - subject
 - time
 - day
