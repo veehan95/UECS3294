@@ -19,6 +19,7 @@ Classes Table
 - max_sit
 - venue
 - teacher_id -> Foreign Key -> reference on Teachers table
+
 Teachers Table
 - id -> Primary Key
 - teacher_id
@@ -29,6 +30,7 @@ Teachers Table
 - contact
 - email
 - education_background
+
 Students Table
 - id
 - student_id
