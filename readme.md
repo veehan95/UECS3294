@@ -23,6 +23,7 @@ This project should not be used for any commercial purpose
     <td>teacher_id(FK)</td>
   </thead>
 </table>
+
 ## Teachers Table
 <table>
   <thead>
@@ -36,7 +37,8 @@ This project should not be used for any commercial purpose
     <td>email</td>
     <td>education_background</td>
   </thead>
-</table> 
+</table>
+
 ## Students Table
 <table>
   <thead>
