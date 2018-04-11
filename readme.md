@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 A simple system to record:
 - Students' information
 - Classes' information
@@ -8,7 +8,7 @@ This is an assignment form UECS3294 Advance Web Application in UTAR for January 
 This project should not be used for any commercial purpose
 
 # Structure
-##Classes Table
+## Classes Table
 <table>
   <thead>
     <td>id(PK)</td>
@@ -23,7 +23,7 @@ This project should not be used for any commercial purpose
     <td>teacher_id(FK)</td>
   </thead>
 </table>
-##Teachers Table
+## Teachers Table
 <table>
   <thead>
     <td>id(PK)</td>
@@ -37,7 +37,7 @@ This project should not be used for any commercial purpose
     <td>education_background</td>
   </thead>
 </table> 
-##Students Table
+## Students Table
 <table>
   <thead>
     <td>id(PK)</td>
@@ -53,7 +53,7 @@ This project should not be used for any commercial purpose
   </thead>
 </table>
 
-## Framework
+# Framework
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
