@@ -12,7 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('mainPage/welcome');
+    return view('welcome');
 });
+Route::resource('/student', 'StudentController', ['except' => [
+  'destroy',
+  ]]);
+Route::resource('/teacher', 'TeacherController', ['except' => [
+  'destroy',
+  ]]);
+Route::resource('/class', 'ClassController', ['except' => [
+  'destroy',
+  ]]);
 
-Route::get('student', 'StudentController@create')->name('students.create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
