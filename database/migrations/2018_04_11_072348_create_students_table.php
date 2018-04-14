@@ -17,12 +17,13 @@ class CreateStudentsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->char('student_id', 5)->unique();
+            $table->char('gender', 1)->unique();
             $table->string('name', 100)->index();
             $table->integer('age')->index();
-            $table->string('ic', 12)->nullable();
+            $table->string('nric', 12)->nullable();
             $table->text('address')->nullable();
             $table->string('contact', 20)->nullable();
-            $table->string('parents_contact', 20)->index();
+            $table->string('parents_contact', 20)->nullable();
             $table->string('email', 254)->nullable();
             $table->string('school', 200)->nullable();
             $table->timestamps();

@@ -17,9 +17,10 @@ class CreateTeachersTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');;
             $table->char('teacher_id', 5)->unique();
+            $table->char('gender', 1)->unique();
             $table->string('name', 100)->index();
             $table->integer('age')->index();
-            $table->string('ic', 12)->index();
+            $table->string('nric', 12)->index();
             $table->text('address')->nullable();
             $table->string('contact', 20)->index();
             $table->string('email', 254)->nullable();

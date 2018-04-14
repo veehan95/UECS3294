@@ -1,144 +1,160 @@
+<?php
+  use App\Common;
+?>
 @extends('layouts.app')
 
 @section('content')
 
-  <!-- Bootstrap Boilerplate... -->
+<!-- Bootstrap Boilerplate... -->
 
-  <div class="panel-body">
+<div class="panel-body">
   <!-- New Student Form -->
     {!! Form::model($student, [
       'route' => ['student.store'],
       'class' => 'form-horizontal'
     ]) !!}
 
-  <!-- Student ID -->
-  <div class="form-group row">
-    {!! Form::label('student-id', "Student ID", [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('student_id', null, [
-        'id' => 'student-id',
-        'class' => 'form-control',
-        'maxlength' => 100,
+    <!-- Student ID -->
+    <div class="form-group row">
+      {!! Form::label('student-id', "Student ID", [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('student_id', null, [
+          'id' => 'student-id',
+          'class' => 'form-control',
+          'maxlength' => 100,
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Name -->
-  <div class="form-group row">
-    {!! Form::label('student-name', 'Name', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('name', null, [
-        'id' => 'student-name',
-        'class' => 'form-control',
-        'maxlength' => 100,
+    <!-- Name -->
+    <div class="form-group row">
+      {!! Form::label('student-name', 'Name', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('name', null, [
+          'id' => 'student-name',
+          'class' => 'form-control',
+          'maxlength' => 100,
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Age -->
-  <div class="form-group row">
-    {!! Form::label('student-age', 'Age', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('age', null, [
-        'id' => 'student-age',
-        'class' => 'form-control',
+    <!-- Gender -->
+    <div class="form-group row">
+      {!! Form::label('member-gender', 'Gender', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::select('gender', Common::$gender, null, [
+          'class' => 'form-control',
+          'placeholder' => '- Select Gender -',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- IC -->
-  <div class="form-group row">
-    {!! Form::label('student-ic', 'IC', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('age', null, [
-        'id' => 'student-ic',
-        'class' => 'form-control',
+    <!-- Age -->
+    <div class="form-group row">
+      {!! Form::label('student-age', 'Age', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('age', null, [
+          'id' => 'student-age',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Address -->
-  <div class="form-group row">
-    {!! Form::label('student-address', 'Address', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('address', null, [
-        'id' => 'student-address',
-        'class' => 'form-control',
+    <!-- IC -->
+    <div class="form-group row">
+      {!! Form::label('student-nric', 'NRIC', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('nric', null, [
+          'id' => 'student-nric',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Contact -->
-  <div class="form-group row">
-    {!! Form::label('student-contact', 'Contact', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('contact', null, [
-        'id' => 'student-contact',
-        'class' => 'form-control',
+    <!-- Address -->
+    <div class="form-group row">
+      {!! Form::label('student-address', 'Address', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('address', null, [
+          'id' => 'student-address',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Parents Contact -->
-  <div class="form-group row">
-    {!! Form::label('student-parent-contact', "Parent's Contact", [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('parent-contact', null, [
-        'id' => 'student-parent-contact',
-        'class' => 'form-control',
+    <!-- Contact -->
+    <div class="form-group row">
+      {!! Form::label('student-contact', 'Contact', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('contact', null, [
+          'id' => 'student-contact',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Email -->
-  <div class="form-group row">
-    {!! Form::label('student-email', 'E-mail', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('email', null, [
-        'id' => 'student-email',
-        'class' => 'form-control',
+    <!-- Parents Contact -->
+    <div class="form-group row">
+      {!! Form::label('student-parents-contact', "Parent's Contact", [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('parents_contact', null, [
+          'id' => 'student-parents-contact',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- School -->
-  <div class="form-group row">
-    {!! Form::label('student-school', 'School', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('school', null, [
-        'id' => 'student-school',
-        'class' => 'form-control',
+    <!-- Email -->
+    <div class="form-group row">
+      {!! Form::label('student-email', 'E-mail', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('email', null, [
+          'id' => 'student-email',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
 
-  <!-- Submit Button -->
-  <div class="form-group row">
-    <div class="col-sm-offset-3 col-sm-6">
-      {!! Form::button('Save', [
-        'type' => 'submit',
-        'class' => 'btn btn-primary',
+    <!-- School -->
+    <div class="form-group row">
+      {!! Form::label('student-school', 'School', [
+        'class' => 'control-label col-sm-3',
       ]) !!}
+      <div class="col-sm-6">
+        {!! Form::text('school', null, [
+          'id' => 'student-school',
+          'class' => 'form-control',
+        ]) !!}
+      </div>
     </div>
-  </div>
+
+    <!-- Submit Button -->
+    <div class="form-group row">
+      <div class="col-sm-offset-3 col-sm-6">
+        {!! Form::button('Save', [
+          'type' => 'submit',
+          'class' => 'btn btn-primary',
+        ]) !!}
+      </div>
+    </div>
 
   {!! Form::close() !!}
 
