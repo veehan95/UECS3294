@@ -15,7 +15,7 @@ use App\Common;
     'class' => 'form-horizontal'
   ]) !!}
   <div class="form-group row">
-    <h1 class="control-label col-sm-3">Students</h1>
+    <h1 class="control-label col-sm-3">Student</h1>
   </div>
   <!-- Name -->
   <div class="form-group row">

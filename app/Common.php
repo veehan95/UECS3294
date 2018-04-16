@@ -27,4 +27,17 @@ class Common {
     'TE' => 'Terengganu',
     NULL => 'NA'
   ];
+  public static $subject =[
+    '1103' => 'Malay Language',
+    '1119' => 'English Language',
+    '1223' => 'Islamic Studies',
+    '1225' => 'Moral Studies',
+    '1249' => 'History',
+    '1449' => 'Mathematics',
+    '1511' => 'Science',
+    '2611' => 'Visual Arts Education',
+    '2621' => 'Music Education',
+    '4571' => 'Sports Science Knowledge',
+    '6351' => 'Chinese Language',
+  ];
 }

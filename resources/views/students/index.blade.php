@@ -13,6 +13,9 @@
     <!-- Table Headings -->
     <thead>
       <tr>
+        <td colspan="7"><h1>Students</h1></td>
+      </tr>
+      <tr>
         <th>ID</th>
         <th>Name</th>
         <th>NRIC</th>
@@ -31,7 +34,7 @@
         <td class="table-text">
           <div>
             {!! link_to_route(
-              'teacher.show',
+              'student.show',
               $title = $student->student_id,
               $parameters = [
                 'id' => $student->student_id,
@@ -60,7 +63,7 @@
         <td class="table-text">
           <div>
             {!! link_to_route(
-              'teacher.edit',
+              'student.edit',
               $title = 'Edit',
               $parameters = [
                 'id' => $student->student_id,

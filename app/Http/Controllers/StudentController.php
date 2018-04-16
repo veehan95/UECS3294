@@ -68,10 +68,10 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-      $student = Student::find($id);
+      $student = Student::where('student_id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 
-      return view('student.show', [
+      return view('students.show', [
         'student' => $student,
       ]);
     }
@@ -85,10 +85,10 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-      $student = Student::find($id);
+      $student = Student::where('student_id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 
-      return view('student.edit', [
+      return view('students.edit', [
         'student' => $student
       ]);
     }
@@ -103,7 +103,7 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $student = Student::find($id);
+      $student = Student::where('student_id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 
       $student->fill($request->all());

@@ -5,8 +5,10 @@ use App\Common;
 @section('content')
     <!-- Bootstrap Boilerplate... -->
     <div class="panel-body">
-
-      <table class="table table-striped task-table">
+      <table class="table table-striped task-table"  style="margin: 0px auto;width: 60vw">
+        <thead class="form-group row">
+          <td colspan="2"><h1>Teacher</h1></td>
+        </thead>
         <tbody>
           <tr>
             <td>ID</td>

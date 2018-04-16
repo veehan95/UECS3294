@@ -13,6 +13,9 @@
     <!-- Table Headings -->
     <thead>
       <tr>
+        <td colspan="7"><h1>Teachers</h1></td>
+      </tr>
+      <tr>
         <th>ID</th>
         <th>Name</th>
         <th>NRIC</th>

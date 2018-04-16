@@ -26,4 +26,12 @@ class Student extends Model
       'email',
       'school',
     ];
+
+    /**
+     * Get all of the students for the class.
+     */
+    public function class()
+    {
+      return $this->belongsToMany(TuitionClass::class);
+    }
 }

@@ -22,7 +22,9 @@
       'method' => 'put',
       'class' => 'form-horizontal'
     ]) !!}
-
+    <div class="form-group row">
+      <h1 class="control-label col-sm-3">Teacher</h1>
+    </div>
     <!-- Name -->
     <div class="form-group row">
     {!! Form::label('teacher-name', 'Name', [
@@ -168,6 +170,6 @@
 
     {!! Form::close() !!}
 
-    </div>
+</div>
 
-    @endsection
+@endsection
