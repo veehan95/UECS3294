@@ -16,7 +16,7 @@ class TuitionClassController extends Controller
       {
         $class = new TuitionClass();
 
-        return view('class.create', [
+        return view('classes.create', [
          'class' => $class,
         ]);
       }
@@ -41,7 +41,7 @@ class TuitionClassController extends Controller
             
         $class->save();
 
-        return redirect()->route('class.index');
+        return redirect()->route('classes.index');
       }
 
       /**
@@ -53,7 +53,7 @@ class TuitionClassController extends Controller
       {
         $class = TuitionClass::orderBy('name', 'asc')->paginate(15);
 
-        return view('class.index', [
+        return view('classes.index', [
           'class' => $class
         ]);
       }
@@ -70,7 +70,7 @@ class TuitionClassController extends Controller
         $class = TuitionClass::where('class_id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
-        return view('class.show', [
+        return view('classes.show', [
           'class' => $class,
         ]);
       }
@@ -87,7 +87,7 @@ class TuitionClassController extends Controller
         $class = TuitionClass::where('class_id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
-        return view('class.edit', [
+        return view('classes.edit', [
           'class' => $class
         ]);
       }
@@ -109,6 +109,6 @@ class TuitionClassController extends Controller
 
         $class->save();
 
-        return redirect()->route('class.index');
+        return redirect()->route('classes.index');
       }
 }
