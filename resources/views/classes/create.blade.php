@@ -18,32 +18,6 @@ use App\Common;
     <h1 class="control-label col-sm-3">Class</h1>
   </div>
 
-  <!-- Name -->
-  <div class="form-group row">
-    {!! Form::label('class-name', 'Name', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('name', null, [
-        'id' => 'class-name',
-        'class' => 'form-control',
-        'maxlength' => 100,
-      ]) !!}
-    </div>
-  </div>
-
-  <!-- Gender -->
-  <div class="form-group row">
-    {!! Form::label('member-gender', 'Gender', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      @foreach(Common::$gender as $key => $val)
-      {!! Form::radio('gender', $key) !!} {{$val}}
-      @endforeach
-    </div>
-  </div>
-
   <!-- NRIC -->
   <div class="form-group row">
     {!! Form::label('class-nric', 'NRIC', [
