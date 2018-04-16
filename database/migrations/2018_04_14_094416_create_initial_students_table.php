@@ -13,7 +13,7 @@ class CreateInitialStudentsTable extends Migration
      */
     public function up()
     {
-      DB::table('Students')->insert([
+      /*DB::table('Students')->insert([
       'id' => 1234,
       'student_id' => '1234',
       'gender' => 'f',
@@ -25,7 +25,7 @@ class CreateInitialStudentsTable extends Migration
       'parents_contact' => 1234,
       'email' => 'admin@admin.com',
       'school' => 'null',
-      ]);
+    ]);*/
     }
 
     /**

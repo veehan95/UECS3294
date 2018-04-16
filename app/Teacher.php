@@ -12,22 +12,16 @@ class Teacher extends Model
      * @var array
      */
     protected $fillable = [
-      'student_id',
+      'teacher_id',
       'name',
-      'age',
-      'ic',
+      'gender',
+      'nric',
       'address',
+      'postcode',
+      'city',
+      'state',
       'contact',
-      'parents_contact',
       'email',
-      'school',
+      'education_background',
     ];
-
-    /**
-     * Get all of the classes for the teacher.
-     */
-    public function classes()
-    {
-      return $this->belongToMany(Class::class);
-    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Student;
 
 class StudentController extends Controller
@@ -32,6 +33,13 @@ class StudentController extends Controller
     {
       $student = new Student;
       $student->fill($request->all());
+
+      do{
+        $number = 'S'.(date("y")%100).date("m")
+          .str_pad(mt_rand(0, 100), 3, '0', STR_PAD_LEFT);
+      }while(Student::where('student_id', '=', $number)->exists());
+      $student->student_id=$number;
+
       $student->save();
 
       return redirect()->route('student.index');
@@ -44,10 +52,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-      $student = Student::orderBy('name', 'asc')->get();
+      $students = Student::orderBy('name', 'asc')->paginate(15);
 
-      return view('student.index', [
-        'student' => $student
+      return view('students.index', [
+        'students' => $students
       ]);
     }
 

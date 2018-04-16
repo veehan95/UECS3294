@@ -16,12 +16,14 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');;
-            $table->char('teacher_id', 5)->unique();
-            $table->char('gender', 1)->unique();
+            $table->char('teacher_id', 8)->unique();
             $table->string('name', 100)->index();
-            $table->integer('age')->index();
-            $table->string('nric', 12)->index();
+            $table->string('nric', 12)->unique();
+            $table->char('gender', 1)->index();
             $table->text('address')->nullable();
+            $table->text('postcode')->nullable();
+            $table->text('city')->nullable();
+            $table->text('state')->nullable();
             $table->string('contact', 20)->index();
             $table->string('email', 254)->nullable();
             $table->text('education_background')->nullable();

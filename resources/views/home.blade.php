@@ -13,8 +13,55 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <div class="panel-title">
+                      Welcome Back, {{ Auth::user()->name }}!!!
+                    </div>
+                    <hr/>
+                    <div class="panel-group">
+                      <div class="panel-title">
+                        Students' Info
+                      </div>
+                      <ul>
+                          <a href="{{ route('student.index') }}">
+                            View All Students
+                          </a>
+                          <br/>
+                          <a href="{{ route('student.create') }}">
+                            Add New Student
+                          </a>
+                      </ul>
+                    </div>
+                    <hr/>
+                    <div class="panel-group">
+                        <div class="panel-title">
+                          Teachers' Info
+                        </div>
+                        <ul>
+                          <a href="{{ route('teacher.index') }}">
+                            View All Teachers
+                          </a>
+                          <br/>
+                          <a href="{{ route('teacher.create') }}">
+                            Add New Teacher
+                          </a>
+                      </ul>
+                    </div>
+                    <hr/>
+                    <div class="panel-group">
+                        <div class="panel-title">
+                          Classes' Info
+                        </div>
+                        <ul>
+                          <a href="{{ route('class.index') }}">
+                            View All Classes
+                          </a>
+                          <br/>
+                          <a href="{{ route('class.create') }}">
+                            Add New Class
+                          </a>
+                        </ul>
+                    </div>
+                    <hr/>
                 </div>
             </div>
         </div>
