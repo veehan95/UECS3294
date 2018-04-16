@@ -78,12 +78,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    TVH
-                </div>
-                <div class="links">
-                    <a href="{{ route('student.create') }}">Student</a>
-                    <a href="{{ route('teacher.create') }}">Teacher</a>
-                    <a href="{{ route('class.create') }}">Class</a>
+                    1304713 Tuition Center
                 </div>
             </div>
         </div>

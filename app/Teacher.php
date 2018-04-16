@@ -6,16 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-      'student_id',
+      'teacher_id',
       'name',
-      'age',
-      'ic',
+      'gender',
+      'nric',
       'address',
+      'postcode',
+      'city',
+      'state',
       'contact',
-      'parents_contact',
       'email',
-      'school',
+      'education_background',
     ];
 }
