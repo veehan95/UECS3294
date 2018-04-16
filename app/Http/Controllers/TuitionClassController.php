@@ -32,6 +32,13 @@ class TuitionClassController extends Controller
       {
         $class = new TuitionClass;
         $class->fill($request->all());
+            
+        do{
+          $number = 'C'.(date("y")%100).date("m")
+            .str_pad(mt_rand(0, 100), 3, '0', STR_PAD_LEFT);
+        }while(TuitionClass::where('class_id', '=', $number)->exists());
+        $class->class_id=$number;
+            
         $class->save();
 
         return redirect()->route('class.index');
@@ -44,7 +51,7 @@ class TuitionClassController extends Controller
        */
       public function index()
       {
-        $class = TuitionClass::orderBy('name', 'asc')->get();
+        $class = TuitionClass::orderBy('name', 'asc')->paginate(15);
 
         return view('class.index', [
           'class' => $class
@@ -60,7 +67,7 @@ class TuitionClassController extends Controller
        */
       public function show($id)
       {
-        $class = TuitionClass::find($id);
+        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('class.show', [
@@ -77,7 +84,7 @@ class TuitionClassController extends Controller
        */
       public function edit($id)
       {
-        $class = TuitionClass::find($id);
+        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('class.edit', [
@@ -95,7 +102,7 @@ class TuitionClassController extends Controller
        */
       public function update(Request $request, $id)
       {
-        $class = TuitionClass::find($id);
+        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         $class->fill($request->all());
