@@ -30,7 +30,7 @@ This project should not be used for any commercial purpose
     <td>id(PK)</td>
     <td>teacher_id</td>
     <td>name</td>
-    <td>age</td>
+    <td>gender</td>
     <td>ic</td>
     <td>address</td>
     <td>contact</td>
@@ -45,7 +45,7 @@ This project should not be used for any commercial purpose
     <td>id(PK)</td>
     <td>student_id</td>
     <td>name</td>
-    <td>age</td>
+    <td>gender</td>
     <td>ic</td>
     <td>address</td>
     <td>contact</td>
