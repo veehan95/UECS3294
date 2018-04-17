@@ -67,13 +67,14 @@ class ReadCsvFiles extends Migration
           $classes = new TuitionClass();
           $classes->id = $data[0];
           $classes->subject = $data[1];
-          $classes->time = $data[2];
-          $classes->day = $data[3];
-          $classes->effective_date = $data[4];
-          $classes->close_date = $data[5];
-          $classes->max_sit = $data[6];
-          $classes->venue = $data[7];
-          $classes->teacher_id = $data[8];
+          $classes->start_time = $data[2];
+          $classes->end_time = $data[3];
+          $classes->day = $data[4];
+          $classes->effective_date = $data[5];
+          $classes->close_date = $data[6];
+          $classes->max_sit = $data[7];
+          $classes->venue = $data[8];
+          $classes->teacher_id = $data[9];
           $classes->save ();
       }
      fclose ( $handle );

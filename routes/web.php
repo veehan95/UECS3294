@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::any('/', array( 'as' => 'home', 'uses' => 'HomeController@index' ));
+
 Route::resource('/student', 'StudentController', ['except' => [
   'destroy',
   ]]);
@@ -25,5 +24,3 @@ Route::resource('/class', 'TuitionClassController', ['except' => [
   ]]);
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

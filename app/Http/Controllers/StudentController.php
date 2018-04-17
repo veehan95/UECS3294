@@ -31,6 +31,35 @@ class StudentController extends Controller
     */
     public function store(Request $request)
     {
+      $request->validate([
+        'name' => [
+          'required',
+        ],
+        'gender' => [
+          'required',
+        ],
+        'nric' => [
+          'required',
+          'regex:^\\d{6}\\-\\d{2}\\-\\d{4}$^',
+          'unique:teachers',
+        ],
+        'parent_contact' => [
+          'required',
+          'regex:^([0-9]{2,3})\-([0-9]{6,8})$^',
+        ],
+        'school' => [
+          'required',
+        ],
+      ]);
+      if(!empty($request->postcode))
+        $request->validate([
+          'postcode' => [
+            'integer',
+          ],
+          'email' => [
+            'regex:^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$^',
+          ],
+        ]);
       $student = new Student;
       $student->fill($request->all());
 
@@ -103,6 +132,35 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $request->validate([
+        'name' => [
+          'required',
+        ],
+        'gender' => [
+          'required',
+        ],
+        'nric' => [
+          'required',
+          'regex:^\\d{6}\\-\\d{2}\\-\\d{4}$^',
+          'unique:teachers',
+        ],
+        'parent_contact' => [
+          'required',
+          'regex:^([0-9]{2,3})\-([0-9]{6,8})$^',
+        ],
+        'school' => [
+          'required',
+        ],
+      ]);
+      if(!empty($request->postcode))
+        $request->validate([
+          'postcode' => [
+            'integer',
+          ],
+          'email' => [
+            'regex:^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$^',
+          ],
+        ]);
       $student = Student::where('id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 

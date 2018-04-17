@@ -37,6 +37,6 @@ class TuitionClass extends Model
    */
   public function teacher()
   {
-    return $this->has(Teacher::class);
+    return $this->belongsTo(Teacher::class);
   }
 }

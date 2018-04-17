@@ -24,4 +24,9 @@ class Teacher extends Model
       'email',
       'education_background',
     ];
+
+    public function tuitionclasses()
+    {
+      return $this->hasMany(TuitionClass::class);
+    }
 }

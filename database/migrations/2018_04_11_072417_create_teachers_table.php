@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->char('id', 8)->unique();
             $table->primary('id');
             $table->string('name', 100)->index();
-            $table->string('nric', 12)->unique();
+            $table->string('nric', 14)->unique();
             $table->char('gender', 1)->index();
             $table->text('address')->nullable();
             $table->text('postcode')->nullable();

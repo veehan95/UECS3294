@@ -6,8 +6,17 @@ use App\Teacher;
 
 @section('content')
 
-  <!-- Bootstrap Boilerplate... -->
-  <div class="panel-body">
+<!-- Bootstrap Boilerplate... -->
+<div class="panel-body">
+  @if($errors->any())
+    <div class='alert alert-danger'>
+      <ul>
+        @foreach($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
   <!-- New Class Form -->
   {!! Form::model($class, [
     'route' => ['class.store'],
@@ -23,7 +32,8 @@ use App\Teacher;
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      <select class="form-control" id="class-subject "name="subject" placeholder="Select Subject">
+      <select class="form-control" id="class-subject "name="subject">
+        <option value="">Select Subject</option>
         @foreach(Common::$subject as $key=>$subject)
           <option value="{{$key}}">{{$key.' - '.$subject}}</option>
         @endforeach

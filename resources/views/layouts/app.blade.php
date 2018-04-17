@@ -19,7 +19,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}">
                         1304713 Tuition Center
                     </a>
                 </div>

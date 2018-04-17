@@ -20,9 +20,9 @@ class CreateTuitionclassesTable extends Migration
             $table->string('subject', 4)->index();
             $table->time('start_time');
             $table->time('end_time');
-            $table->string('day', 3)->index();
-            $table->string('effective_date', 100)->index();
-            $table->string('close_date', 100)->nullable();
+            $table->char('day', 3)->index();
+            $table->date('effective_date', 100)->index();
+            $table->date('close_date', 100)->nullable();
             $table->integer('max_sit')->nullable();
             $table->string('venue', 100)->nullable();
             $table->char('teacher_id', 8);

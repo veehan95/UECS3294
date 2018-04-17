@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\TuitionClass;
+use Carbon\Carbon;
 
 class TuitionClassController extends Controller
 {
@@ -31,6 +32,27 @@ class TuitionClassController extends Controller
        */
       public function store(Request $request)
       {
+        $request->validate([
+          'subject' => [
+            'required',
+          ],
+          'day' => [
+            'required',
+          ],
+          'close_date' => [
+            'after:'.$request->effective_date,
+          ],
+          'max_sit' => [
+            'required',
+            'integer',
+          ],
+          'venue' => [
+            'required',
+          ],
+          'teacher_id' => [
+            'required',
+          ],
+        ]);
         $class = new TuitionClass;
         $class->fill($request->all());
 
@@ -103,6 +125,27 @@ class TuitionClassController extends Controller
        */
       public function update(Request $request, $id)
       {
+        $request->validate([
+          'subject' => [
+            'required',
+          ],
+          'day' => [
+            'required',
+          ],
+          'close_date' => [
+            'after:'.$request->effective_date,
+          ],
+          'max_sit' => [
+            'required',
+            'integer',
+          ],
+          'venue' => [
+            'required',
+          ],
+          'teacher_id' => [
+            'required',
+          ],
+        ]);
         $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
@@ -110,6 +153,6 @@ class TuitionClassController extends Controller
 
         $class->save();
 
-        return redirect()->route('classes.index');
+        return redirect()->route('class.index');
       }
 }

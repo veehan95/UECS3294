@@ -46,7 +46,11 @@
             .Common::$subject[$class->subject] }}</div>
         </td>
         <td class="table-text">
-          <div>{{ $class->time }}</div>
+          <div>
+            {{ date("h:i A", strtotime($class->start_time)).
+              ' to '.
+              date("h:i A", strtotime($class->end_time)) }}
+            </div>
         </td>
         <td class="table-text">
           <div>{{ Common::$day[$class->day] }}</div>

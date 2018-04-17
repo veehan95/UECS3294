@@ -18,7 +18,7 @@ class CreateStudentsTable extends Migration
             $table->char('id', 8)->unique();
             $table->primary('id');
             $table->string('name', 100)->index();
-            $table->string('nric', 12)->nullable();
+            $table->string('nric', 14)->nullable();
             $table->char('gender', 1)->index();
             $table->text('address')->nullable();
             $table->text('postcode')->nullable();

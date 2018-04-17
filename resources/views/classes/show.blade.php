@@ -1,5 +1,6 @@
 <?php
 use App\Common;
+use App\Teacher;
 ?>
 @extends('layouts.app')
 @section('content')
@@ -21,7 +22,11 @@ use App\Common;
           </tr>
           <tr>
             <td>Time</td>
-            <td>{{ $class->time }}</td>
+            <td>
+              {{ date("h:i A", strtotime($class->start_time)).
+                ' to '.
+                date("h:i A", strtotime($class->end_time)) }}
+            </td>
           </tr>
           <tr>
             <td>Day</td>
@@ -29,11 +34,11 @@ use App\Common;
           </tr>
           <tr>
             <td>Effective Date</td>
-            <td>{{ $class->effective_date }}</td>
+            <td>{{ date("Y F d", strtotime($class->effective_date)) }}</td>
           </tr>
           <tr>
             <td>Close Date</td>
-            <td>{{ $class->close_date }}</td>
+            <td>{{ date("Y F d", strtotime($class->close_date)) }}</td>
           </tr>
           <tr>
             <td>Max Sit</td>
@@ -49,7 +54,7 @@ use App\Common;
           </tr>
           <tr>
             <td>Teacher</td>
-            <td>{{ $class->teacher_id }}</td>
+            <td>{{ Teacher::find($class->teacher_id)->name }}</td>
           </tr>
 
         </tbody>
