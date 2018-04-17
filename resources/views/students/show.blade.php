@@ -1,5 +1,6 @@
 <?php
 use App\Common;
+use App\TuitionClass;
 ?>
 @extends('layouts.app')
 @section('content')
@@ -58,6 +59,11 @@ use App\Common;
             <td>School</td>
             <td>{{ $student->school }}</td>
           </tr>
+          <td>
+              @foreach ($relations as $i => $relation)
+               {{ $relation->class_id }}<<br/>
+              @endforeach
+          </td>
 
         </tbody>
 @endsection
