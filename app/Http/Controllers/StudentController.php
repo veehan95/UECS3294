@@ -97,6 +97,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
+      $relations = \DB::table('piviot_cs')->get();;
       $student = Student::find($id);
       if(!$student) throw new ModelNotFoundException;
 
