@@ -59,11 +59,14 @@ use App\TuitionClass;
             <td>School</td>
             <td>{{ $student->school }}</td>
           </tr>
-          <td>
-              @foreach ($relations as $i => $relation)
-               {{ $relation->class_id }}<<br/>
-              @endforeach
-          </td>
+          <tr>
+            <td>Classess</td>
+            <td>
+                @foreach ($relations as $i => $relation)
+                  {{ $relation->class_id }}<<br/>
+                @endforeach
+            </td>
+          </tr>
 
         </tbody>
 @endsection
