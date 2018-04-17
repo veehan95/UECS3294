@@ -90,13 +90,13 @@ class TuitionClassController extends Controller
        */
       public function show($id)
       {
-        $relation = \DB::table('piviot_cs')->get();;
+        $relations = \DB::table('piviot_cs')->get();;
         $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('classes.show', [
           'class' => $class,
-          'relation' => $relation,
+          'relations' => $relations,
         ]);
       }
 
