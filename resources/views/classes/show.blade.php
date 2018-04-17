@@ -58,6 +58,14 @@ use App\Student;
             <td>{{ Teacher::find($class->teacher_id)->name }}</td>
           </tr>
           <tr>
+            <td>Teacher</td>
+            <td>
+                @foreach ($relations as $i => $relation)
+                 {{ Student::find($relation->student_id)->get()->name }}<<br/>
+                @endforeach
+            </td>
+          </tr>
+          <tr>
             {!! Form::open(array('route' => 'class.ctos')) !!}
             <td>
               {!! Form::select('student_id',
