@@ -155,4 +155,11 @@ class TuitionClassController extends Controller
 
         return redirect()->route('class.index');
       }
+     public function ctos($class_id, $student_id)
+     {
+       $ctos = \DB::table('piviot_cs')->insert([
+          'student_id' => '91702123',
+          'class_id' => '21804051',
+        ]);
+     }
 }

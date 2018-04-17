@@ -30,38 +30,53 @@ class InitRolesAndPermissions extends Migration
         'title' => 'View Student',
       ]);
       $createStudent = Bouncer::ability()->create([
-        'name' => 'view-create',
-        'title' => 'View Create',
+        'name' => 'create-student',
+        'title' => 'Create Student',
+      ]);
+      $manageStudent = Bouncer::ability()->create([
+        'name' => 'manage-student',
+        'title' => 'Manage Student',
       ]);
       $viewTeacher = Bouncer::ability()->create([
         'name' => 'view-teacher',
         'title' => 'View Teacher',
       ]);
       $createTeacher = Bouncer::ability()->create([
-        'name' => 'view-teacher',
-        'title' => 'View Teacher',
+        'name' => 'create-teacher',
+        'title' => 'Create Teacher',
+      ]);
+      $manageTeacher = Bouncer::ability()->create([
+        'name' => 'manage-teacher',
+        'title' => 'Manage Teacher',
       ]);
       $viewClass = Bouncer::ability()->create([
         'name' => 'view-class',
         'title' => 'View Class',
       ]);
       $createClass = Bouncer::ability()->create([
-        'name' => 'view-class',
-        'title' => 'View Class',
+        'name' => 'create-class',
+        'title' => 'Create Class',
+      ]);
+      $manageClass = Bouncer::ability()->create([
+        'name' => 'manage-class',
+        'title' => 'Manage Class',
       ]);
       // Assign abilities to roles
       Bouncer::allow($admin)->to($viewStudent);
       Bouncer::allow($admin)->to($createStudent);
+      Bouncer::allow($admin)->to($manageStudent);
       Bouncer::allow($admin)->to($viewTeacher);
       Bouncer::allow($admin)->to($createTeacher);
+      Bouncer::allow($admin)->to($manageTeacher);
       Bouncer::allow($admin)->to($viewClass);
       Bouncer::allow($admin)->to($createClass);
+      Bouncer::allow($admin)->to($manageClass);
       Bouncer::allow($teacher)->to($viewStudent);
       Bouncer::allow($teacher)->to($viewTeacher);
       Bouncer::allow($teacher)->to($viewClass);
 
-      $user = User::find(1);
-      Bouncer::assign('admin')->to($user);
+      Bouncer::assign('admin')->to(User::find(1));
+      Bouncer::assign('admin')->to(User::find(2));
     }
 
     /**

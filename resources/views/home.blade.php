@@ -26,7 +26,6 @@
                             View All Students
                           </a>
                           <br/>
-
                           <a href="{{ route('student.create') }}">
                             Add New Student
                           </a>

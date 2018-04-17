@@ -1,6 +1,7 @@
 <?php
 use App\Common;
 use App\Teacher;
+use App\Student;
 ?>
 @extends('layouts.app')
 @section('content')
@@ -56,6 +57,24 @@ use App\Teacher;
             <td>Teacher</td>
             <td>{{ Teacher::find($class->teacher_id)->name }}</td>
           </tr>
-
+          <tr>
+            {!! Form::open(array('route' => 'class.ctos')) !!}
+            <td>
+              {!! Form::select('student_id',
+                Student::pluck('name', 'id'),
+                null, [
+                  'class' => 'form-control',
+                  'placeholder' => 'Select Student',
+              ]) !!}
+            </td>
+            <td>
+              {!! Form::button('Save', [
+                'type' => 'submit',
+                'class' => 'btn btn-primary',
+                'href' => action('TuitionClassController@ctos'),
+              ]) !!}
+            </td>
+            {!! Form::close() !!}
+          </tr>
         </tbody>
 @endsection
