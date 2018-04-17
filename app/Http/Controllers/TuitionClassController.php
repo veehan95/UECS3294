@@ -90,11 +90,13 @@ class TuitionClassController extends Controller
        */
       public function show($id)
       {
+        $relation = \DB::table('piviot_cs')->get();;
         $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('classes.show', [
           'class' => $class,
+          'relation' => $relation,
         ]);
       }
 
@@ -155,11 +157,4 @@ class TuitionClassController extends Controller
 
         return redirect()->route('class.index');
       }
-     public function ctos($class_id, $student_id)
-     {
-       $ctos = \DB::table('piviot_cs')->insert([
-          'student_id' => '91702123',
-          'class_id' => '21804051',
-        ]);
-     }
 }
