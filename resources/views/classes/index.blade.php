@@ -7,69 +7,70 @@
 <!-- Bootstrap Boilerplate... -->
 <div class="panel-body">
 
-  @if (count($teachers) > 0)
+  @if (count($classes) > 0)
   <table class="table table-striped task-table">
 
     <!-- Table Headings -->
     <thead>
       <tr>
-        <td colspan="7"><h1>Teachers</h1></td>
+        <td colspan="7"><h1>Classes</h1></td>
       </tr>
       <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>NRIC</th>
-        <th>Gender</th>
-        <th>State</th>
-        <th>Contact</th>
+        <th>Subject</th>
+        <th>Time</th>
+        <th>Day</th>
+        <th>Available Sit</th>
+        <th>Venue</th>
         <th>Actions</th>
       </tr>
     </thead>
 
     <!-- Table Body -->
     <tbody>
-      @foreach ($teachers as $i => $teacher)
+      @foreach ($classes as $i => $class)
       <tr>
         <td class="table-text">
           <div>
             {!! link_to_route(
-              'teacher.show',
-              $title = $teacher->teacher_id,
+              'class.show',
+              $title = $class->id,
               $parameters = [
-                'id' => $teacher->teacher_id,
+                'id' => $class->id,
               ]
             ) !!}
           </div>
         </td>
         <td class="table-text">
-          <div>{{ $teacher->name }}</div>
+          <div>{{ $class->subject.' - '
+            .Common::$subject[$class->subject] }}</div>
         </td>
         <td class="table-text">
-          <div>{{ $teacher->nric }}</div>
+          <div>{{ $class->time }}</div>
         </td>
         <td class="table-text">
-          <div>{{ Common::$gender[$teacher->gender] }}</div>
+          <div>{{ Common::$day[$class->day] }}</div>
         </td>
         <td class="table-text">
-          <div>{{ Common::$state[$teacher->state] }}</div>
+          <div>{{ 10 - $class->max_sit }}</div>
         </td>
         <td class="table-text">
-          <div>{{ $teacher->contact }}</div>
+          <div>{{ $class->venue }}</div>
         </td>
         <td class="table-text">
           <div>
             {!! link_to_route(
-              'teacher.edit',
+              'class.edit',
               $title = 'Edit',
               $parameters = [
-                'id' => $teacher->teacher_id,
+                'id' => $class->id,
               ]
             ) !!}
           </div>
         </td>
       </tr>
       @endforeach
-      {{$teachers->links()}}
+      {{$classes->links()}}
     </tbody>
 
   </table>

@@ -12,7 +12,7 @@ use App\Common;
         <tbody>
           <tr>
             <td>ID</td>
-            <td>{{ $student->student_id }}</td>
+            <td>{{ $student->id }}</td>
           </tr>
           <tr>
             <td>Name</td>

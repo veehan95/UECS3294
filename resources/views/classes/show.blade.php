@@ -7,52 +7,49 @@ use App\Common;
     <div class="panel-body">
       <table class="table table-striped task-table"  style="margin: 0px auto;width: 60vw">
         <thead class="form-group row">
-          <td colspan="2"><h1>Teacher</h1></td>
+          <td colspan="2"><h1>Class</h1></td>
         </thead>
         <tbody>
           <tr>
             <td>ID</td>
-            <td>{{ $teacher->teacher_id }}</td>
+            <td>{{ $class->id }}</td>
           </tr>
           <tr>
-            <td>Name</td>
-            <td>{{ $teacher->name }}</td>
+            <td>Subject</td>
+            <td>{{ $class->subject.' - '
+              .Common::$subject[$class->subject] }}</td>
           </tr>
           <tr>
-            <td>Gender</td>
-            <td>{{ Common::$gender[$teacher->gender] }}</td>
+            <td>Time</td>
+            <td>{{ $class->time }}</td>
           </tr>
           <tr>
-            <td>NRIC</td>
-            <td>{{ $teacher->nric }}</td>
+            <td>Day</td>
+            <td>{{ Common::$day[$class->day] }}</td>
           </tr>
           <tr>
-            <td>Address</td>
-            <td>{!! nl2br($teacher->address) !!}</td>
+            <td>Effective Date</td>
+            <td>{{ $class->effective_date }}</td>
           </tr>
           <tr>
-            <td>Postcode</td>
-            <td>{{ $teacher->postcode }}</td>
+            <td>Close Date</td>
+            <td>{{ $class->close_date }}</td>
           </tr>
           <tr>
-            <td>City</td>
-            <td>{{ $teacher->city }}</td>
+            <td>Max Sit</td>
+            <td>{{ $class->max_sit }}</td>
           </tr>
           <tr>
-            <td>State</td>
-            <td>{{ Common::$state[$teacher->state] }}</td>
+            <td>Available Sit</td>
+            <td>{{ 10 - $class->max_sit }}</td>
           </tr>
           <tr>
-            <td>Contact</td>
-            <td>{{ $teacher->contact }}</td>
+            <td>Venue</td>
+            <td>{{ $class->venue }}</td>
           </tr>
           <tr>
-            <td>Email</td>
-            <td>{{ $teacher->email }}</td>
-          </tr>
-          <tr>
-            <td>Education Background</td>
-            <td>{!! nl2br($teacher->education_background) !!}</td>
+            <td>Teacher</td>
+            <td>{{ $class->teacher_id }}</td>
           </tr>
 
         </tbody>

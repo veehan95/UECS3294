@@ -1,7 +1,6 @@
 <?php
-
 use App\Common;
-
+use App\Teacher;
 ?>
 @extends('layouts.app')
 
@@ -18,109 +17,127 @@ use App\Common;
     <h1 class="control-label col-sm-3">Class</h1>
   </div>
 
-  <!-- NRIC -->
+  <!-- Subject -->
   <div class="form-group row">
-    {!! Form::label('class-nric', 'NRIC', [
+    {!! Form::label('class-subject', 'Subject', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::text('nric', null, [
-        'id' => 'class-nric',
-        'class' => 'form-control',
+      <select class="form-control" id="class-subject "name="subject" placeholder="Select Subject">
+        @foreach(Common::$subject as $key=>$subject)
+          <option value="{{$key}}">{{$key.' - '.$subject}}</option>
+        @endforeach
+      </select>
+    </div>
+  </div>
+
+  <!-- Start Time -->
+  <div class="form-group row">
+    {!! Form::label('class-start-time', 'Start Time', [
+      'class' => 'control-label col-sm-3',
+    ]) !!}
+    <div class="col-sm-6">
+      {!! Form::time('start_time', Carbon\Carbon::createFromTime(8,0,0,0)
+        ->format('H:i'), [
+            'id' => 'class-start_time',
+            'class' => 'form-control',
       ]) !!}
     </div>
   </div>
 
-  <!-- Address -->
+  <!-- Ending Time -->
   <div class="form-group row">
-    {!! Form::label('class-address', 'Address', [
+    {!! Form::label('class-ending-time', 'Ending Time', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::text('address', null, [
-        'id' => 'class-address',
-        'class' => 'form-control',
-      ]) !!}
+      {!! Form::time('end_time', Carbon\Carbon::createFromTime(10,0,0,0)
+        ->format('H:i'), [
+            'id' => 'class-end_time',
+            'class' => 'form-control',
+          ]) !!}
     </div>
   </div>
 
-  <!-- Postcode -->
+  <!-- Day -->
   <div class="form-group row">
-    {!! Form::label('class-postcode', 'Postcode', [
+    {!! Form::label('class-day', 'Day', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::text('postcode', null, [
-        'id' => 'class-postcode',
-        'class' => 'form-control',
-      ]) !!}
-    </div>
-  </div>
-
-  <!-- City -->
-  <div class="form-group row">
-    {!! Form::label('class-city', 'City', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::text('city', null, [
-        'id' => 'class-city',
-        'class' => 'form-control',
-      ]) !!}
-    </div>
-  </div>
-
-  <!-- State -->
-  <div class="form-group row">
-    {!! Form::label('class-state', 'State', [
-      'class' => 'control-label col-sm-3',
-    ]) !!}
-    <div class="col-sm-6">
-      {!! Form::select('state',
-        Common::$state,
+      {!! Form::select('day',
+        Common::$day,
         null, [
+            'id' => 'class-day',
           'class' => 'form-control',
-          'placeholder' => 'Select State',
+          'placeholder' => 'Select Day',
       ]) !!}
-
     </div>
   </div>
 
-  <!-- Contact -->
+  <!-- Effective Date -->
   <div class="form-group row">
-    {!! Form::label('class-contact', 'Contact', [
+    {!! Form::label('class-effective-date', 'Effective Date', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::text('contact', null, [
-        'id' => 'class-contact',
+      {!! Form::date('effective_date', Carbon\Carbon::now(), [
+          'id' => 'class-effective_date',
+          'class' => 'form-control',
+        ]) !!}
+    </div>
+  </div>
+
+  <!-- Close Date -->
+  <div class="form-group row">
+    {!! Form::label('class-close-date', 'Close Date', [
+      'class' => 'control-label col-sm-3',
+    ]) !!}
+    <div class="col-sm-6">
+      {!! Form::date('close_date', Carbon\Carbon::now(), [
+          'id' => 'class-close_date',
+          'class' => 'form-control',
+      ]) !!}
+    </div>
+  </div>
+
+  <!-- Sit Number -->
+  <div class="form-group row">
+    {!! Form::label('class-max-sit', 'Sit Number', [
+      'class' => 'control-label col-sm-3',
+    ]) !!}
+    <div class="col-sm-6">
+      {!! Form::text('max_sit', null, [
+        'id' => 'class-max-sit',
         'class' => 'form-control',
       ]) !!}
     </div>
   </div>
 
-  <!-- Email -->
+  <!-- Venue -->
   <div class="form-group row">
-    {!! Form::label('class-email', 'E-mail', [
+    {!! Form::label('class-venue', 'Venue', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::text('email', null, [
-        'id' => 'class-email',
+      {!! Form::text('venue', null, [
+        'id' => 'class-venue',
         'class' => 'form-control',
       ]) !!}
     </div>
   </div>
 
-  <!-- Education Background -->
+  <!-- Teacher -->
   <div class="form-group row">
-    {!! Form::label('class-education-background', 'Education Background', [
+    {!! Form::label('class-teacher-id', 'Teacher', [
       'class' => 'control-label col-sm-3',
     ]) !!}
     <div class="col-sm-6">
-      {!! Form::textarea('education_background', null, [
-        'id' => 'class-education-background',
+      {!! Form::select('teacher_id',
+        Teacher::pluck('name', 'id'),
+        null, [
         'class' => 'form-control',
+        'placeholder' => 'Select Teacher',
       ]) !!}
     </div>
   </div>

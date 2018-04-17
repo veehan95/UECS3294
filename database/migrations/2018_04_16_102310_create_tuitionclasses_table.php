@@ -13,21 +13,25 @@ class CreateTuitionclassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('=tuitionclasses', function (Blueprint $table) {
+        Schema::create('tuition_classes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');;
-            $table->char('class_id', 5)->unique();
-            $table->string('subject', 100)->index();
-            $table->string('time', 100)->index();
-            $table->string('day', 100)->index();
+            $table->char('id', 8)->unique();
+            $table->primary('id');
+            $table->string('subject', 4)->index();
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('day', 3)->index();
             $table->string('effective_date', 100)->index();
             $table->string('close_date', 100)->nullable();
             $table->integer('max_sit')->nullable();
             $table->string('venue', 100)->nullable();
-            $table->unsignedInteger('teacher_id')->unique();
-            $table->foreign('teacher_id')
-              ->references('id')->on('Teachers');
+            $table->char('teacher_id', 8);
             $table->timestamps();
+        });
+
+        Schema::table('tuition_classes', function (Blueprint $table) {
+            $table->foreign('teacher_id')->references('id')
+              ->on('teachers')->onDelete('cascade');
         });
     }
 

@@ -35,10 +35,10 @@ class StudentController extends Controller
       $student->fill($request->all());
 
       do{
-        $number = 'S'.(date("y")%100).date("m")
+        $number = '0'.(date("y")%100).date("m")
           .str_pad(mt_rand(0, 100), 3, '0', STR_PAD_LEFT);
-      }while(Student::where('student_id', '=', $number)->exists());
-      $student->student_id=$number;
+      }while(Student::where('id', '=', $number)->exists());
+      $student->id=$number;
 
       $student->save();
 
@@ -68,7 +68,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-      $student = Student::where('student_id', '=', $id)->get()->first();
+      $student = Student::find($id);
       if(!$student) throw new ModelNotFoundException;
 
       return view('students.show', [
@@ -85,7 +85,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-      $student = Student::where('student_id', '=', $id)->get()->first();
+      $student = Student::where('id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 
       return view('students.edit', [
@@ -103,7 +103,7 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $student = Student::where('student_id', '=', $id)->get()->first();
+      $student = Student::where('id', '=', $id)->get()->first();
       if(!$student) throw new ModelNotFoundException;
 
       $student->fill($request->all());

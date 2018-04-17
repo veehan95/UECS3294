@@ -1,5 +1,6 @@
 <?php
-  use App\Common;
+use App\Common;
+unset(Common::$state[NULL]);
 ?>
 
 @extends('layouts.app')

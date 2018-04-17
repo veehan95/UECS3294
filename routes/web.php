@@ -20,7 +20,7 @@ Route::resource('/student', 'StudentController', ['except' => [
 Route::resource('/teacher', 'TeacherController', ['except' => [
   'destroy',
   ]]);
-Route::resource('/class', 'ClassController', ['except' => [
+Route::resource('/class', 'TuitionClassController', ['except' => [
   'destroy',
   ]]);
 

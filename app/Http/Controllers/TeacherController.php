@@ -36,10 +36,10 @@ class TeacherController extends Controller
       $teacher->fill($request->all());
 
       do{
-        $number = 'T'.(date("y")%100).date("m")
+        $number = '1'.(date("y")%100).date("m")
           .str_pad(mt_rand(0, 100), 3, '0', STR_PAD_LEFT);
-      }while(Teacher::where('teacher_id', '=', $number)->exists());
-      $teacher->teacher_id=$number;
+      }while(Teacher::where('id', '=', $number)->exists());
+      $teacher->id=$number;
 
       $teacher->save();
 
@@ -69,7 +69,7 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-      $teacher = Teacher::where('teacher_id', '=', $id)->get()->first();
+      $teacher = Teacher::where('id', '=', $id)->get()->first();
       if(!$teacher) throw new ModelNotFoundException;
 
       return view('teachers.show', [
@@ -86,7 +86,7 @@ class TeacherController extends Controller
      */
     public function edit($id)
     {
-      $teacher = Teacher::where('teacher_id', '=', $id)->get()->first();
+      $teacher = Teacher::where('id', '=', $id)->get()->first();
       if(!$teacher) throw new ModelNotFoundException;
 
       return view('teachers.edit', [
@@ -104,7 +104,7 @@ class TeacherController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $teacher = Teacher::where('teacher_id', '=', $id)->get()->first();
+      $teacher = Teacher::where('id', '=', $id)->get()->first();
       if(!$teacher) throw new ModelNotFoundException;
 
       $teacher->fill($request->all());

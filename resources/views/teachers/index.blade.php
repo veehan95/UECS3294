@@ -1,5 +1,5 @@
 <?php
-  use App\Common;
+use App\Common;
 ?>
 @extends('layouts.app')
 
@@ -34,9 +34,9 @@
           <div>
             {!! link_to_route(
               'teacher.show',
-              $title = $teacher->teacher_id,
+              $title = $teacher->id,
               $parameters = [
-                'id' => $teacher->teacher_id,
+                'id' => $teacher->id,
               ]
             ) !!}
           </div>
@@ -62,7 +62,7 @@
               'teacher.edit',
               $title = 'Edit',
               $parameters = [
-                'id' => $teacher->teacher_id,
+                'id' => $teacher->id,
               ]
             ) !!}
           </div>

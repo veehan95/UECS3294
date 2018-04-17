@@ -27,7 +27,8 @@ class Common {
     'TE' => 'Terengganu',
     NULL => 'NA'
   ];
-  public static $subject =[
+
+  public static $subject = [
     '1103' => 'Malay Language',
     '1119' => 'English Language',
     '1223' => 'Islamic Studies',
@@ -39,5 +40,15 @@ class Common {
     '2621' => 'Music Education',
     '4571' => 'Sports Science Knowledge',
     '6351' => 'Chinese Language',
+  ];
+
+  public static $day = [
+    'SUN' => 'Sunday',
+    'MON' => 'Monday',
+    'TUE' => 'Tuesday',
+    'WED' => 'Wednesday',
+    'THU' => 'Thursday',
+    'FRI' => 'Friday',
+    'SAT' => 'Saturday',
   ];
 }

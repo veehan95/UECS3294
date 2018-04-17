@@ -13,9 +13,9 @@ class TuitionClass extends Model
    */
   protected $fillable = [
     'id',
-    'class_id',
     'subject',
-    'time',
+    'start_time',
+    'end_time',
     'day',
     'effective_date',
     'close_date',

@@ -1,15 +1,13 @@
 <?php
-  use App\Common;
+use App\Common;
 ?>
 @extends('layouts.app')
 
 @section('content')
 <!-- Bootstrap Boilerplate... -->
 <div class="panel-body">
-
   @if (count($students) > 0)
   <table class="table table-striped task-table">
-
     <!-- Table Headings -->
     <thead>
       <tr>
@@ -26,7 +24,6 @@
         <th>Actions</th>
       </tr>
     </thead>
-
     <!-- Table Body -->
     <tbody>
       @foreach ($students as $i => $student)
@@ -35,9 +32,9 @@
           <div>
             {!! link_to_route(
               'student.show',
-              $title = $student->student_id,
+              $title = $student->id,
               $parameters = [
-                'id' => $student->student_id,
+                'id' => $student->id,
               ]
             ) !!}
           </div>
@@ -66,7 +63,7 @@
               'student.edit',
               $title = 'Edit',
               $parameters = [
-                'id' => $student->student_id,
+                'id' => $student->id,
               ]
             ) !!}
           </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\TuitionClass;
 
 class TuitionClassController extends Controller
 {
@@ -32,16 +33,16 @@ class TuitionClassController extends Controller
       {
         $class = new TuitionClass;
         $class->fill($request->all());
-            
+
         do{
-          $number = 'C'.(date("y")%100).date("m")
+          $number = '2'.(date("y")%100).date("m")
             .str_pad(mt_rand(0, 100), 3, '0', STR_PAD_LEFT);
-        }while(TuitionClass::where('class_id', '=', $number)->exists());
-        $class->class_id=$number;
-            
+        }while(TuitionClass::where('id', '=', $number)->exists());
+        $class->id=$number;
+
         $class->save();
 
-        return redirect()->route('classes.index');
+        return redirect()->route('class.index');
       }
 
       /**
@@ -51,10 +52,10 @@ class TuitionClassController extends Controller
        */
       public function index()
       {
-        $class = TuitionClass::orderBy('name', 'asc')->paginate(15);
+        $classes = TuitionClass::orderBy('subject', 'asc')->paginate(15);
 
         return view('classes.index', [
-          'class' => $class
+          'classes' => $classes
         ]);
       }
 
@@ -67,7 +68,7 @@ class TuitionClassController extends Controller
        */
       public function show($id)
       {
-        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
+        $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('classes.show', [
@@ -84,7 +85,7 @@ class TuitionClassController extends Controller
        */
       public function edit($id)
       {
-        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
+        $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         return view('classes.edit', [
@@ -102,7 +103,7 @@ class TuitionClassController extends Controller
        */
       public function update(Request $request, $id)
       {
-        $class = TuitionClass::where('class_id', '=', $id)->get()->first();
+        $class = TuitionClass::where('id', '=', $id)->get()->first();
         if(!$class) throw new ModelNotFoundException;
 
         $class->fill($request->all());
