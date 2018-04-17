@@ -58,7 +58,7 @@ use App\Student;
             <td>{{ Teacher::find($class->teacher_id)->name }}</td>
           </tr>
           <tr>
-            <td>Teacher</td>
+            <td>Students</td>
             <td>
                 @foreach ($relations as $i => $relation)
                  {{ Student::find($relation->student_id)->get()->name }}<<br/>
